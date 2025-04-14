@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mochi Blossom</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Welcome Page -->
+        <div id="welcome-page" class="page active">
+            <div class="container">
+                <div class="logo">
+                    <h1>Mochi Blossom</h1>
+                </div>
+                <p class="app-description">A gentle way to track your cycles and embrace your natural rhythm.</p>
+                
+                <div class="quote-container">
+                    <p id="welcome-quote" class="quote"></p>
+                    <p id="quote-author" class="quote-author"></p>
+                </div>
+                
+                <div class="form-group">
+                    <label for="userName">Your Name:</label>
+                    <input type="text" id="userName" placeholder="Enter your name">
+                </div>
+                
+                <button id="start-btn" class="btn">Get Started</button>
+            </div>
+        </div>
+
+        <!-- Setup Page -->
+        <div id="setup-page" class="page">
+            <div class="container">
+                <h1>Initial Setup</h1>
+                <p>Let's set up your cycle information:</p>
+                
+                <div class="form-group">
+                    <label for="lastPeriodDate">When did your last period start?</label>
+                    <input type="date" id="lastPeriodDate">
+                </div>
+                
+                <div class="form-group">
+                    <label for="periodLength">Average period length (days):</label>
+                    <input type="number" id="periodLength" min="1" max="15" value="5">
+                </div>
+                
+                <div class="form-group">
+                    <label for="cycleLength">Average cycle length (days):</label>
+                    <input type="number" id="cycleLength" min="21" max="45" value="28">
+                </div>
+                
+                <button id="save-setup-btn" class="btn">Save & Continue</button>
+            </div>
+        </div>
+
+        <!-- Main Page -->
+        <div id="main-page" class="page">
+            <div class="container">
+                <div class="header">
+                    <h1>Hello, <span id="user-name-display"></span>!</h1>
+                    <div class="actions">
+                        <button id="edit-profile-btn" class="btn-small">Edit Profile</button>
+                    </div>
+                </div>
+                
+                <div class="status-card">
+                    <h2>Cycle Status</h2>
+                    <div id="cycle-status"></div>
+                    <div id="daily-quote" class="daily-quote"></div>
+                    <div id="prediction-info"></div>
+                </div>
+                
+                <div class="calendar-container">
+                    <div class="calendar-header">
+                        <button id="prev-month" class="btn-small">&lt;</button>
+                        <h2 id="calendar-title"></h2>
+                        <button id="next-month" class="btn-small">&gt;</button>
+                    </div>
+                    <div class="calendar-weekdays">
+                        <div>Sun</div>
+                        <div>Mon</div>
+                        <div>Tue</div>
+                        <div>Wed</div>
+                        <div>Thu</div>
+                        <div>Fri</div>
+                        <div>Sat</div>
+                    </div>
+                    <div id="calendar-days" class="calendar-days"></div>
+                </div>
+                
+                <div class="legend">
+                    <h3>Legend:</h3>
+                    <div class="legend-item"><div class="circle period"></div> Period Days</div>
+                    <div class="legend-item"><div class="circle fertile"></div> Fertile Window</div>
+                    <div class="legend-item"><div class="circle ovulation"></div> Estimated Ovulation</div>
+                    <div class="legend-item"><div class="circle today"></div> Today</div>
+                </div>
+                
+                <div class="actions">
+                    <button id="log-period-btn" class="btn">Log Period Start</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Log Period Modal -->
+        <div id="log-period-modal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Log Period Start</h2>
+                <p>Did your period start on a different date than predicted?</p>
+                <div class="form-group">
+                    <label for="actual-period-date">Actual period start date:</label>
+                    <input type="date" id="actual-period-date">
+                </div>
+                <button id="save-period-btn" class="btn">Save</button>
+            </div>
+        </div>
+
+        <!-- Edit Profile Modal -->
+        <div id="edit-profile-modal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Edit Profile</h2>
+                <div class="form-group">
+                    <label for="edit-userName">Your Name:</label>
+                    <input type="text" id="edit-userName">
+                </div>
+                <div class="form-group">
+                    <label for="edit-periodLength">Average period length (days):</label>
+                    <input type="number" id="edit-periodLength" min="1" max="15">
+                </div>
+                <div class="form-group">
+                    <label for="edit-cycleLength">Average cycle length (days):</label>
+                    <input type="number" id="edit-cycleLength" min="21" max="45">
+                </div>
+                <button id="update-profile-btn" class="btn">Update</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
